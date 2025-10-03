@@ -11,7 +11,7 @@
 > **A comprehensive Progressive Web App designed for tribal communities in Andhra Pradesh, featuring offline-first learning with voice-enabled features in Telugu and English.**
 
 ---
-[](tribal-education-portal.vercel.app)
+[Tribal App](tribal-education-portal.vercel.app)
 
 ## 🏆 **Hackathon**
 **Event:** Tools for Tribals HackAP Hackathon  
