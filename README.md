@@ -20,7 +20,7 @@
 
 ## 📱 **Live Demo**
 🔗 **[Try the Live App](tribal-education-portal.vercel.app)**
-
+[tribal-education-portal.vercel.app](url)
 ---
 
 ## ✨ **Key Features**
