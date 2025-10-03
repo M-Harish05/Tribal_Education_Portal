@@ -53,7 +53,8 @@
 ### 🏠 **Home Dashboard**
 *Beautiful tribal-themed interface with cultural authenticity*
 
-![Dashboard](<img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c17623c4-517e-4709-9c4b-8a39d2a4fbb2" />)
+![Dashboard]
+<img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c17623c4-517e-4709-9c4b-8a39d2a4fbb2" />
 
 ### 📚 **Learning Interface**
 *Interactive Telugu alphabet learning with voice pronunciation*
