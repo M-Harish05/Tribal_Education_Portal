@@ -297,7 +297,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 📞 **Contact & Support**
 
-- **📧 Email**: [your-email@domain.com]
+- **📧 Email**: [harish.musidipilli@gmail.com]
 - **🐛 Issues**: [GitHub Issues](https://github.com/your-username/tribal-education-portal/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/your-username/tribal-education-portal/discussions)
 
