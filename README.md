@@ -1,4 +1,4 @@
-<img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c17623c4-517e-4709-9c4b-8a39d2a4fbb2" /># 🎓 Tribal Education Portal
+# 🎓 Tribal Education Portal
 ### *গিরিজন বিদ্যা পোর্টাল* | *गिरिजन शिक्षा पोर्टल* | *గిరిజన విద్యా పోర్టల్*
 
 [![PWA](https://img.shields.io/badge/PWA-Progressive%20Web%20App-blue)](https://github.com/your-username/tribal-education-portal)
@@ -53,7 +53,7 @@
 ### 🏠 **Home Dashboard**
 *Beautiful tribal-themed interface with cultural authenticity*
 
-![Dashboard](<img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c59fdb72-7bf5-4591-bf82-0da5ca85796d" />)
+![Dashboard](<img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c17623c4-517e-4709-9c4b-8a39d2a4fbb2" />)
 
 ### 📚 **Learning Interface**
 *Interactive Telugu alphabet learning with voice pronunciation*
