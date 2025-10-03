@@ -19,8 +19,8 @@
 ---
 
 ## 📱 **Live Demo**
-🔗 **[Try the Live App](tribal-education-portal.vercel.app)**
-[tribal-education-portal.vercel.app](url)
+🔗 **[Try the Live App](tribal-education-portal-gno8fbyab-m-harish05s-projects.vercel.app)**
+
 ---
 
 ## ✨ **Key Features**
