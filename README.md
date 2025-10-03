@@ -57,14 +57,17 @@
 <img width="1887" height="857" alt="DashBoard image" src="https://github.com/user-attachments/assets/c17623c4-517e-4709-9c4b-8a39d2a4fbb2" />
 
 ### 📚 **Learning Interface**
+
 *Interactive Telugu alphabet learning with voice pronunciation*
 
-![Learning](https://via.placeholder.com/800x400/2D5016/FFFFFF?text=Learning+Module+Screenshot)
+![Learning]
+<img width="1895" height="855" alt="Speech Recognition Image" src="https://github.com/user-attachments/assets/3bc9504a-74c5-4cde-901a-abc93b8034b0" />
 
 ### 📱 **Mobile Experience**
 *Perfect responsive design for mobile-first approach*
 
-![Mobile](https://via.placeholder.com/400x800/FFD23F/000000?text=Mobile+View)
+![Mobile]
+(https://via.placeholder.com/400x800/FFD23F/000000?text=Mobile+View)
 
 </div>
 
