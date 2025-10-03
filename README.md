@@ -11,7 +11,6 @@
 > **A comprehensive Progressive Web App designed for tribal communities in Andhra Pradesh, featuring offline-first learning with voice-enabled features in Telugu and English.**
 
 ---
-[Tribal App](tribal-education-portal.vercel.app)
 
 ## 🏆 **Hackathon**
 **Event:** Tools for Tribals HackAP Hackathon  
@@ -19,7 +18,9 @@
 **Target:** Alluri Sitarama Raju District, Andhra Pradesh  
 
 ---
+Check out the live project here: [Tribal Education Portal](https://tribal-education-portal.vercel.app)
 
+---
 
 ## ✨ **Key Features**
 
