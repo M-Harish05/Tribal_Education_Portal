@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>గిరిజన విద్యా పోర్టల్ - Tribal Education Portal</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Comprehensive education platform for tribal communities with offline learning capabilities">
+    <meta name="theme-color" content="#FF6B35">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Tribal Education">
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🎓%3C/text%3E%3C/svg%3E">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-container">
+            <div class="loading-content">
+                <div class="tribal-logo">
+                    <svg width="120" height="120" viewBox="0 0 120 120" class="tribal-icon">
+                        <circle cx="60" cy="60" r="50" fill="#FFD23F" stroke="#2D5016" stroke-width="3"/>
+                        <path d="M30 60 L90 60 M60 30 L60 90 M45 45 L75 75 M75 45 L45 75" stroke="#2D5016" stroke-width="2"/>
+                        <circle cx="60" cy="60" r="15" fill="#FF6B35"/>
+                        <path d="M50 50 Q60 40 70 50 Q60 70 50 50" fill="#B85450"/>
+                    </svg>
+                </div>
+                <h2 class="loading-title">గిరిజన విద్యా పోర్టల్</h2>
+                <div class="tribal-spinner"></div>
+                <p class="loading-subtitle">Loading your learning journey...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Language Selection Screen -->
+    <div id="language-selection" class="language-selection hidden">
+        <div class="language-container">
+            <div class="tribal-header-pattern"></div>
+            <h1 class="language-title">భాష ఎంచుకోండి / Choose Language</h1>
+            <div class="language-options">
+                <button class="btn btn--primary btn--lg language-btn" data-lang="te" onclick="selectLanguage('te')">
+                    <span class="language-flag">🇮🇳</span>
+                    <span class="language-text">తెలుగు</span>
+                    <span class="language-sub">Telugu</span>
+                </button>
+                <button class="btn btn--secondary btn--lg language-btn" data-lang="en" onclick="selectLanguage('en')">
+                    <span class="language-flag">🇬🇧</span>
+                    <span class="language-text">English</span>
+                    <span class="language-sub">अंग्रेजी</span>
+                </button>
+            </div>
+            <div class="voice-intro">
+                <button class="btn btn--outline voice-intro-btn" onclick="playWelcomeMessage()">
+                    <span class="voice-icon">🎤</span>
+                    <span>వాయిస్ పరిచయం వినండి / Listen to Voice Intro</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="main-app" class="main-app hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-container">
+                <div class="header-left">
+                    <div class="logo-container">
+                        <svg width="40" height="40" viewBox="0 0 120 120" class="logo-icon">
+                            <circle cx="60" cy="60" r="50" fill="#FFD23F" stroke="#2D5016" stroke-width="3"/>
+                            <circle cx="60" cy="60" r="15" fill="#FF6B35"/>
+                        </svg>
+                        <div class="logo-text">
+                            <h1 class="logo-title">గిరిజన విద్యా పోర్టల్</h1>
+                            <p class="logo-subtitle">Tribal Education Portal</p>
+                        </div>
+                    </div>
+                </div>
+
+                <nav class="header-nav">
+                    <button class="nav-btn active" data-module="dashboard" onclick="switchModule('dashboard')">
+                        <span class="nav-icon">🏠</span>
+                        <span class="nav-text" data-te="గృహం" data-en="Home">గృహం</span>
+                    </button>
+                    <button class="nav-btn" data-module="learn" onclick="switchModule('learn')">
+                        <span class="nav-icon">📚</span>
+                        <span class="nav-text" data-te="నేర్చుకోవడం" data-en="Learn">నేర్చుకోవడం</span>
+                    </button>
+                    <button class="nav-btn" data-module="stories" onclick="switchModule('stories')">
+                        <span class="nav-icon">📖</span>
+                        <span class="nav-text" data-te="కథలు" data-en="Stories">కథలు</span>
+                    </button>
+                    <button class="nav-btn" data-module="community" onclick="switchModule('community')">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text" data-te="సమాజం" data-en="Community">సమాజం</span>
+                    </button>
+                </nav>
+
+                <div class="header-right">
+                    <button class="header-control voice-toggle" onclick="toggleVoice()" title="Voice Commands">
+                        <span class="control-icon">🎤</span>
+                    </button>
+                    <button class="header-control language-toggle" onclick="toggleLanguage()" title="Switch Language">
+                        <span class="control-icon">🌐</span>
+                    </button>
+                    <div class="online-status" id="online-status">
+                        <span class="status-dot online"></span>
+                        <span class="status-text">Online</span>
+                    </div>
+                </div>
+            </div>
+            <div class="tribal-header-border"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dashboard Module -->
+            <div id="dashboard-module" class="module active">
+                <!-- Hero Section -->
+                <section class="hero-section">
+                    <div class="hero-container">
+                        <div class="hero-content">
+                            <h2 class="hero-title" data-te="మీ అభ్యాస ప్రయాణానికి స్వాగతం" data-en="Welcome to Your Learning Journey">మీ అభ్యాస ప్రయాణానికి స్వాగతం</h2>
+                            <p class="hero-subtitle" data-te="గిరిజన సమాజాల కోసం రూపొందించబడిన పూర్తి విద్యా వేదిక" data-en="Complete educational platform designed for tribal communities">గిరిజన సమాజాల కోసం రూపొందించబడిన పూర్తి విద్యా వేదిక</p>
+                            <button class="btn btn--primary hero-cta" onclick="startLearning()">
+                                <span data-te="నేర్చుకోవడం ప్రారంభించండి" data-en="Start Learning">నేర్చుకోవడం ప్రారంభించండి</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </div>
+                        <div class="hero-visual">
+                            <svg width="200" height="200" viewBox="0 0 200 200" class="hero-illustration">
+                                <circle cx="100" cy="100" r="80" fill="#FFD23F" opacity="0.3"/>
+                                <circle cx="100" cy="100" r="60" fill="#FF6B35" opacity="0.4"/>
+                                <circle cx="100" cy="100" r="40" fill="#2D5016" opacity="0.5"/>
+                                <path d="M60 100 Q100 60 140 100 Q100 140 60 100" fill="#B85450"/>
+                            </svg>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Stats Section -->
+                <section class="stats-section">
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon">🏆</div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="user-points">850</h3>
+                                <p class="stat-label" data-te="పాయింట్లు" data-en="Points">పాయింట్లు</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📊</div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="user-level">1</h3>
+                                <p class="stat-label" data-te="స్థాయి" data-en="Level">స్థాయి</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="lessons-completed">15</h3>
+                                <p class="stat-label" data-te="పూర్తి చేసిన పాఠాలు" data-en="Lessons Completed">పూర్తి చేసిన పాఠాలు</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🔥</div>
+                            <div class="stat-content">
+                                <h3 class="stat-number" id="learning-streak">7</h3>
+                                <p class="stat-label" data-te="రోజుల వరుస" data-en="Day Streak">రోజుల వరుస</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Learning Modules Grid -->
+                <section class="modules-section">
+                    <h2 class="section-title" data-te="అభ్యాస మాడ్యూళ్లు" data-en="Learning Modules">అభ్యాస మాడ్యూళ్లు</h2>
+                    <div class="modules-grid">
+                        <!-- Basic Literacy Module -->
+                        <div class="module-card" data-module="basic-literacy" onclick="openModule('basic-literacy')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <rect x="10" y="15" width="40" height="30" fill="#FF6B35" rx="3"/>
+                                    <path d="M15 25 L25 35 L45 20" stroke="white" stroke-width="3" fill="none"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="మౌలిక అక్షరాస్యత" data-en="Basic Literacy">మౌలిక అక్షరాస్యత</h3>
+                                <p class="module-description" data-te="తెలుగు అక్షరాలు మరియు సంఖ్యలు నేర్చుకోండి" data-en="Learn Telugu alphabets and numbers">తెలుగు అక్షరాలు మరియు సంఖ్యలు నేర్చుకోండి</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 60%"></div>
+                                    </div>
+                                    <span class="progress-text">60% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Traditional Knowledge Module -->
+                        <div class="module-card" data-module="traditional-knowledge" onclick="openModule('traditional-knowledge')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <circle cx="30" cy="15" r="8" fill="#2D5016"/>
+                                    <path d="M30 23 L25 45 M30 23 L35 45 M20 30 L40 30 M22 35 L38 35" stroke="#2D5016" stroke-width="3"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="సంప్రదాయ జ్ఞానం" data-en="Traditional Knowledge">సంప్రదాయ జ్ఞానం</h3>
+                                <p class="module-description" data-te="పూర్వీకుల కథలు మరియు ఔషధ జ్ఞానం" data-en="Ancestral stories and medicinal knowledge">పూర్వీకుల కథలు మరియు ఔషధ జ్ఞానం</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 40%"></div>
+                                    </div>
+                                    <span class="progress-text">40% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Development Module -->
+                        <div class="module-card" data-module="skill-development" onclick="openModule('skill-development')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <rect x="15" y="25" width="30" height="3" fill="#FFD23F"/>
+                                    <circle cx="20" cy="20" r="3" fill="#FFD23F"/>
+                                    <circle cx="40" cy="35" r="3" fill="#FFD23F"/>
+                                    <path d="M25 15 L35 15 M30 10 L30 20" stroke="#FFD23F" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="నైపుణ్య అభివృద్ధి" data-en="Skill Development">నైపుణ్య అభివృద్ధి</h3>
+                                <p class="module-description" data-te="వ్యవసాయం, హస్తకళలు మరియు వ్యాపార నైపుణ్యాలు" data-en="Agriculture, crafts and business skills">వ్యవసాయం, హస్తకళలు మరియు వ్యాపార నైపుణ్యాలు</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 25%"></div>
+                                    </div>
+                                    <span class="progress-text">25% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Government Schemes Module -->
+                        <div class="module-card" data-module="government-schemes" onclick="openModule('government-schemes')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <rect x="15" y="20" width="30" height="25" fill="#B85450" rx="2"/>
+                                    <circle cx="30" cy="15" r="8" fill="#B85450"/>
+                                    <path d="M25 32 L35 32 M22 37 L38 37" stroke="white" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="ప్రభుత్వ పథకాలు" data-en="Government Schemes">ప్రభుత్వ పథకాలు</h3>
+                                <p class="module-description" data-te="స్కాలర్‌షిప్‌లు మరియు ప్రభుత్వ సహాయ పథకాలు" data-en="Scholarships and government assistance schemes">స్కాలర్‌షిప్‌లు మరియు ప్రభుత్వ సహాయ పథకాలు</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%"></div>
+                                    </div>
+                                    <span class="progress-text">80% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Community Learning Module -->
+                        <div class="module-card" data-module="community-learning" onclick="openModule('community-learning')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <circle cx="20" cy="25" r="8" fill="#FF6B35"/>
+                                    <circle cx="40" cy="25" r="8" fill="#FF6B35"/>
+                                    <circle cx="30" cy="40" r="8" fill="#FF6B35"/>
+                                    <path d="M26 30 L34 30 M24 35 L36 35" stroke="#FF6B35" stroke-width="2"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="సమాజ అధ్యయనం" data-en="Community Learning">సమాజ అధ్యయనం</h3>
+                                <p class="module-description" data-te="సమాజంతో కలిసి నేర్చుకోవడం మరియు అనుభవాలు పంచుకోవడం" data-en="Learning together and sharing experiences with community">సమాజంతో కలిసి నేర్చుకోవడం మరియు అనుభవాలు పంచుకోవడం</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 30%"></div>
+                                    </div>
+                                    <span class="progress-text">30% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Progress Tracking Module -->
+                        <div class="module-card" data-module="progress-tracking" onclick="openModule('progress-tracking')">
+                            <div class="module-icon">
+                                <svg width="60" height="60" viewBox="0 0 60 60" class="module-svg">
+                                    <path d="M10 45 Q30 25 50 45" stroke="#2D5016" stroke-width="4" fill="none"/>
+                                    <circle cx="20" cy="38" r="3" fill="#2D5016"/>
+                                    <circle cx="30" cy="32" r="3" fill="#2D5016"/>
+                                    <circle cx="40" cy="36" r="3" fill="#2D5016"/>
+                                </svg>
+                            </div>
+                            <div class="module-content">
+                                <h3 class="module-title" data-te="పురోగతి ట్రాకింగ్" data-en="Progress Tracking">పురోగతి ట్రాకింగ్</h3>
+                                <p class="module-description" data-te="మీ అభ్యాస పురోగతిని చూడండి మరియు లక్ష్యాలను సాధించండి" data-en="View your learning progress and achieve goals">మీ అభ్యాస పురోగతిని చూడండి మరియు లక్ష్యాలను సాధించండి</p>
+                                <div class="module-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 90%"></div>
+                                    </div>
+                                    <span class="progress-text">90% పూర్తయింది</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Daily Challenge Section -->
+                <section class="challenge-section">
+                    <div class="challenge-card">
+                        <div class="challenge-header">
+                            <h3 class="challenge-title" data-te="నేటి సవాలు" data-en="Today's Challenge">నేటి సవాలు</h3>
+                            <span class="challenge-reward">+50 పాయింట్లు</span>
+                        </div>
+                        <p class="challenge-description" data-te="పాత రోజు కొత్త 5 తెలుగు పదాలు నేర్చుకోవాలి" data-en="Learn 5 new Telugu words today">పాత రోజు కొత్త 5 తెలుగు పదాలు నేర్చుకోవాలి</p>
+                        <button class="btn btn--outline challenge-btn" onclick="startChallenge()">
+                            <span data-te="సవాలు ప్రారంభించండి" data-en="Start Challenge">సవాలు ప్రారంభించండి</span>
+                        </button>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Learning Module -->
+            <div id="learn-module" class="module">
+                <div class="module-header">
+                    <h2 class="module-title" data-te="అభ్యాస కేంద్రం" data-en="Learning Center">అభ్యాస కేంద్రం</h2>
+                    <button class="btn btn--secondary voice-help-btn" onclick="playVoiceHelp('learn')">
+                        <span class="btn-icon">🎤</span>
+                        <span data-te="వాయిస్ సహాయం" data-en="Voice Help">వాయిస్ సహాయం</span>
+                    </button>
+                </div>
+
+                <!-- Telugu Alphabet Learning -->
+                <div class="learning-section">
+                    <h3 class="section-subtitle" data-te="తెలుగు అక్షరాలు" data-en="Telugu Alphabets">తెలుగు అక్షరాలు</h3>
+                    <div class="alphabet-grid" id="alphabet-grid">
+                        <!-- Vowels -->
+                        <div class="alphabet-category">
+                            <h4 class="category-title" data-te="అచ్చులు (అ - ఔ)" data-en="Vowels (a - au)">అచ్చులు (అ - ఔ)</h4>
+                            <div class="letters-grid" id="vowels-grid">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- Consonants -->
+                        <div class="alphabet-category">
+                            <h4 class="category-title" data-te="హల్లులు (క - హ)" data-en="Consonants (ka - ha)">హల్లులు (క - హ)</h4>
+                            <div class="letters-grid" id="consonants-grid">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Number Learning -->
+                <div class="learning-section">
+                    <h3 class="section-subtitle" data-te="సంఖ్యలు" data-en="Numbers">సంఖ్యలు</h3>
+                    <div class="numbers-grid" id="numbers-grid">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stories Module -->
+            <div id="stories-module" class="module">
+                <div class="module-header">
+                    <h2 class="module-title" data-te="సంప్రదాయ కథలు" data-en="Traditional Stories">సంప్రదాయ కథలు</h2>
+                </div>
+
+                <div class="stories-grid">
+                    <!-- Story cards will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Community Module -->
+            <div id="community-module" class="module">
+                <div class="module-header">
+                    <h2 class="module-title" data-te="సమాజ కేంద్రం" data-en="Community Center">సమాజ కేంద్రం</h2>
+                </div>
+
+                <div class="community-sections">
+                    <div class="community-card">
+                        <h3 data-te="చర్చా వేదిక" data-en="Discussion Forum">చర్చా వేదిక</h3>
+                        <p data-te="సమాజంతో మీ ఆలోచనలు పంచుకోండి" data-en="Share your thoughts with the community">సమాజంతో మీ ఆలోచనలు పంచుకోండి</p>
+                    </div>
+
+                    <div class="community-card">
+                        <h3 data-te="మార్గదర్శకత్వం" data-en="Mentorship">మార్గదర్శకత్వం</h3>
+                        <p data-te="అనుభవజ్ఞుల నుండి నేర్చుకోండి" data-en="Learn from experienced members">అనుభవజ్ఞుల నుండి నేర్చుకోండి</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Voice Command Overlay -->
+    <div id="voice-overlay" class="voice-overlay hidden">
+        <div class="voice-container">
+            <div class="voice-animation">
+                <div class="voice-wave"></div>
+            </div>
+            <p class="voice-text" data-te="వినుచున్నాను... మాట్లాడండి" data-en="Listening... Speak now">వినుచున్నాను... మాట్లాడండి</p>
+            <button class="voice-cancel" onclick="stopVoiceRecognition()">✕</button>
+        </div>
+    </div>
+
+    <!-- Service Worker Registration -->
+    <script>
+        // Register Service Worker for offline functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful');
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
