@@ -19,7 +19,7 @@
 ---
 
 ## 📱 **Live Demo**
-🔗 **[Try the Live App](https://www.youtube.com/watch?v=uvTcd-VlM64)**
+🔗 **[Try the Live App](tribal-education-portal-gno8fbyab-m-harish05s-projects.vercel.app)**
 
 ---
 
