@@ -11,7 +11,7 @@
 
 ---
 
-## 🏆 **Hackathon Submission**
+## 🏆 **Hackathon**
 **Event:** Tools for Tribals HackAP Hackathon  
 **Problem Statement:** Problem 8 - Education & Skill Development Portal  
 **Target:** Alluri Sitarama Raju District, Andhra Pradesh  
