@@ -62,7 +62,6 @@ LEARNING
 ### 📱 **Mobile Experience**
 *Perfect responsive design for mobile-first approach*
 
-MOBILE
 ![Mobile Interface](https://github.com/user-attachments/assets/a0d14a5f-6470-41e0-9019-a6fdf5711aa5)
 
 </div>
