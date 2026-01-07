@@ -13,8 +13,8 @@ export async function connectToDatabase() {
     let serviceAccount;
     
     // Try to get Firebase config from environment variable (for production)
-    if (process.env.FIREBASE_CONFIG) {
-      serviceAccount = JSON.parse(process.env.FIREBASE_CONFIG);
+    if (process.env.FIREBASE_SERVICE_ACCOUNT) {
+     serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
       console.log('Using Firebase config from environment variable');
     } else {
       // Fall back to file (for local development)
