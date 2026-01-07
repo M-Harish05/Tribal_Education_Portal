@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "tribal-education",
+  "private_key_id": "d4aecf6ba1bff8f0150c51fa568db4ca264b82c1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDgmijS2PAFtLLZ\ngsPlpOojmb9/RSzHGnrrdvmbkVdQF7NsDlVCniaKbgs2fYeChBKFq4j2hAfsIuUL\nU72nUo/QKugJ73nL3YXg9fzHN9zAqBSwkF8PKkgSZe4YUiWOBlOGSIKskN76Fqaj\nbu8FN9138yew8EsRGAYzG6A3Nvr2LNtCMfhR1KZe8CN7EGmMECsXxoVK/n2HaNwu\nEM0yxFaQGm2SFULoziQmENDOr5S3+MJs3gFoAEIkzcgQQSL0X2ZK3E7HtFLbYtVy\nSvnZHwV73lCADPFInxHZZ14Jf7p6FZiM2pjZukY/6Wh+MOZfpnFE0u2iVP+L8x9J\noadj3uTfAgMBAAECggEAT31v5lOd+z79L2sO3uczcJ8Y/bejReIyz8QfSjYxsyh4\nOU2HUlj7pfGVaVcbDw+kKIfRpQGMdj/RVWVxUVcwi8mrrtyA/CxuFfSpXm6AY/T4\nwZaO9iSONmi50AS+wtmtVPCzwtRQ/iznFB+OW4fui2XUzdP1lVqt0we7d98vCdGj\nTg1EGxrv/KU9Z10jjRKt2tvJq3SdGwmbYmUvjF6kuITQkuAg3cdgNSaOmV2fmdz6\nwRf0t5eithsXHNDdHyHVf1p5qBP+N+0DGqL8hw9iPHrhkecyCGQgdCHyGm/abzow\n0Hw0tAZ8J9Wgp62ud4nj3b6N0zticQlGJY5ax3CGgQKBgQD+dpREwc8/8Q+obeaz\neaQbyZxcPx2acVuPUkEuEWgHra+IaxgoZMDRZKortvg1tyYDIysRkNV2G+AyCYnZ\n2/RocLvL2w7yycPveW/QVnBmhfet0osV8A6QXv0fG8xtGIassrEJPEZziacjxpej\nt77uMz3l4fQo30sgkpFtLG9rgQKBgQDh9Wmo5Yqk/I/e5FHWaIfwtzEwzu2wfYtj\nj9pZrFlBYPaJFZB8HMZ1sAaQbpp4iDyMLJ0oQY+Ycd753QSfiFACjqwTT6cTxS+t\nWaJH2G4pN+EgnQrgqjWsErCBYPBxll/8TntrzA9d75ftbrNP1O0esLdHEtyZ5kdO\n1z32IYYAXwKBgQDw1LWbJXrK35GcLPetYTDqg7OSssGHzEWFram2ug6lRcLd783b\nXRAInadY3ECqRf6Z9YzrgRImSFe1w8VOBZiZyChU1ayeKEtiuKIUodqbjatOPfgY\n+Swvg1c5PAwMLKw5gp1/Sia7bspbV7do4Zy4wJKSoXl9vWfTGiS9GNMTAQKBgQCs\nmNUYmh2JYRJUY3rPmBEeohAFBEszIPK0HlHfZXLYKcSneb1f0GsXwlmBQbrkjswR\nFpMFCO8ytuhnW5gIdAsJqQlvxswMofaFJ4556qxa98ATNWH1so5E3hHNAcsoOIEh\nLKHB+aFTU4xtZL27IR3u73VP6Oxw8iFN68P8mibNaQKBgHiraU7OY9HsvrKGObtJ\njKw5IugokDP4KnULFqIYv8TXbWVSKvU3VWPofB6xYn02OS9Oe9DA1pbu9CjdZxMx\nC5Cqda2Hzbi6ieVi06vX6tZdphEQXXjdycSKVG4Q72GVQNJE+b20zN13A/FyCts6\n8jbgR1/ytzxvWn+l9L+lhpRo\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-fbsvc@tribal-education.iam.gserviceaccount.com",
+  "client_id": "105616930497966392965",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-fbsvc%40tribal-education.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
